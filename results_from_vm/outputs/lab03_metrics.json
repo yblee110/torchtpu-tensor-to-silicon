@@ -1,0 +1,49 @@
+{
+  "max_abs_diff": 0.015625,
+  "microbenchmark": {
+    "strict_eager": {
+      "latency_ms": 1.7893631000002113,
+      "effective_bw_gbs": 112.5129896777106
+    },
+    "torch_compile": {
+      "latency_ms": 0.23065533333313698,
+      "effective_bw_gbs": 872.8460300079977
+    },
+    "pallas_bm256": {
+      "latency_ms": 0.2037140333338054,
+      "effective_bw_gbs": 988.2804277411103
+    }
+  },
+  "tile_sweep": {
+    "8": {
+      "latency_ms": 0.9306183999996165,
+      "effective_bw_gbs": 216.33635440700826
+    },
+    "64": {
+      "latency_ms": 0.2266723333330371,
+      "effective_bw_gbs": 888.1833483586283
+    },
+    "128": {
+      "latency_ms": 0.17804000000012365,
+      "effective_bw_gbs": 1130.794158615256
+    },
+    "256": {
+      "latency_ms": 0.15067703333310573,
+      "effective_bw_gbs": 1336.146508505526
+    },
+    "512": {
+      "latency_ms": 0.15890633333318266,
+      "effective_bw_gbs": 1266.951340308594
+    }
+  },
+  "end_to_end": {
+    "compiled_pytorch": {
+      "latency_ms": 1.6651654666664701,
+      "effective_bw_gbs": 161.20647549662831
+    },
+    "compiled_pallas": {
+      "latency_ms": 1.5942622000001923,
+      "effective_bw_gbs": 168.37597730158038
+    }
+  }
+}

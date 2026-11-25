@@ -1,0 +1,31 @@
+====================================================================
+[Lab 02] Device: TPU v6e
+====================================================================
+
+[1/4] Dynamic Shapes: Growing KV-Cache (dynamic=False vs dynamic=None)
+  Step  1 (seq=17) | dynamic=False:  724.18 ms | dynamic=None (128-bucket):   81.23 ms
+  Step  2 (seq=18) | dynamic=False:  126.93 ms | dynamic=None (128-bucket):  385.37 ms
+  Step  3 (seq=19) | dynamic=False:  126.05 ms | dynamic=None (128-bucket):   96.78 ms
+  Step  4 (seq=20) | dynamic=False:  126.50 ms | dynamic=None (128-bucket):    0.80 ms
+  Step  5 (seq=21) | dynamic=False:  127.04 ms | dynamic=None (128-bucket):    0.55 ms
+  Step  6 (seq=22) | dynamic=False:  126.50 ms | dynamic=None (128-bucket):    0.54 ms
+  Step  7 (seq=23) | dynamic=False:  127.00 ms | dynamic=None (128-bucket):    0.55 ms
+  Step  8 (seq=24) | dynamic=False:  129.71 ms | dynamic=None (128-bucket):    0.53 ms
+
+[2/4] Tensor Contiguity vs Non-Contiguous View Input
+  Non-contiguous view (.t())          ->  0.328 ms
+  Contiguous tensor (.contiguous())   ->  0.319 ms
+
+[3/4] TPU v6e MXU (256x256) & Register (8x128) Tile Alignment
+  Unaligned   (3997x3999x4001) ->  0.174 ms | Effective  735.0 TFLOPS
+  128-Aligned (3968x3968x3968) ->  0.180 ms | Effective  692.8 TFLOPS
+  256-Aligned (4096x4096x4096) ->  0.179 ms | Effective  766.7 TFLOPS
+
+[4/4] bfloat16 vs float32 MXU Multi-Pass Precision (4096x4096)
+  Native bfloat16 (1-pass)     |  0.285 ms |  481.4 TFLOPS | Max Err: 1.436e+00
+  FP32 Precision.DEFAULT (1p)  |  0.665 ms |  206.6 TFLOPS | Max Err: 8.154e-01
+  FP32 Precision.HIGH    (3p)  |  0.757 ms |  181.5 TFLOPS | Max Err: 4.410e-03
+  FP32 Precision.HIGHEST (6p)  |  1.210 ms |  113.6 TFLOPS | Max Err: 1.373e-04
+
+[JSON] Saved metrics -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/lab02_metrics.json
+✅ Lab 02 Done!

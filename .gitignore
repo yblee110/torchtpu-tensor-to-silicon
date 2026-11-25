@@ -1,0 +1,13 @@
+# Python / Virtualenvs
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+/outputs/
+
+# Large binary profiler traces & raw compiler HLO dumps (keep lightweight JSON metrics & logs!)
+results_from_vm/outputs/xprof_modes/
+results_from_vm/outputs/hlo_dump/
+*.xplane.pb
+*.pt.trace.json
+*.pt.trace.json.gz

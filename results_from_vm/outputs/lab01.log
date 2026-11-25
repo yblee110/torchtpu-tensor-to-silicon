@@ -1,0 +1,24 @@
+================================================================
+[Lab 01] Hardware Summary: TPU v6e | PyTorch 2.15.0+cu132
+  HBM Capacity      : 32.00 GiB
+  Peak BF16 Compute : 918.0 TFLOPS
+  Peak HBM Bandwidth: 1638.0 GB/s
+  Ridge Point       : 560.4 FLOPs/Byte
+================================================================
+
+Execution Mode       | Latency (ms) | Achieved TFLOPS | Speedup vs Strict
+------------------------------------------------------------------------
+1. Strict Eager      |        3.616 |          228.07 |             1.00x
+2. Debug Eager       |        5.375 |          153.42 |             0.67x
+3. DeferAndFuse      |        1.413 |          583.54 |             2.56x
+4. torch.compile     |        1.248 |          660.52 |             2.90x
+
+[JSON] Saved metrics       -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/lab01_metrics.json
+[Plot] Saved Roofline chart -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/01_roofline_execution_modes.png
+
+Capturing XProf traces for Strict Eager, DeferAndFuse, and torch.compile...
+  [XProf] Saved trace -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/xprof_modes/strict_eager
+  [XProf] Saved trace -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/xprof_modes/defer_and_fuse
+  [XProf] Saved trace -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/xprof_modes/torch_compile
+
+✅ Lab 01 Done! View traces with: xprof --logdir=/home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/xprof_modes --port=6006

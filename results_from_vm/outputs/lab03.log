@@ -1,0 +1,24 @@
+========================================================================
+[Lab 03] Custom Pallas Kernels on TPU v6e
+========================================================================
+
+[1/3] Numerical Parity Check -> Max Abs Diff: 1.562e-02
+
+[2/3] Fused Add + RMSNorm Microbenchmark (v6e Peak HBM ~1,638 GB/s)
+  Strict Eager (Unfused PyTorch)         |   1.789 ms | Effective BW:  112.5 GB/s
+  torch.compile (XLA Fused)              |   0.231 ms | Effective BW:  872.8 GB/s
+  Custom Pallas Kernel (block_m=256)     |   0.204 ms | Effective BW:  988.3 GB/s
+
+      VMEM Tile Size Sweep (block_m):
+    Pallas block_m=8    (  32 KB/tile)   |   0.931 ms | Effective BW:  216.3 GB/s
+    Pallas block_m=64   ( 256 KB/tile)   |   0.227 ms | Effective BW:  888.2 GB/s
+    Pallas block_m=128  ( 512 KB/tile)   |   0.178 ms | Effective BW: 1130.8 GB/s
+    Pallas block_m=256  (1024 KB/tile)   |   0.151 ms | Effective BW: 1336.1 GB/s
+    Pallas block_m=512  (2048 KB/tile)   |   0.159 ms | Effective BW: 1267.0 GB/s
+
+[3/3] End-to-End Transformer Layer with torch.compile(backend='tpu')
+  Compiled Block (Standard PyTorch)      |   1.665 ms | Effective BW:  161.2 GB/s
+  Compiled Block (with Pallas jax_op)    |   1.594 ms | Effective BW:  168.4 GB/s
+
+[JSON] Saved metrics -> /home/leeyb/GDE_2Q_TorchTPU_Sprint/outputs/lab03_metrics.json
+✅ Lab 03 Done!

@@ -1,0 +1,28 @@
+{
+  "device": "TPU v6e",
+  "peak_tflops_bf16": 918.0,
+  "peak_hbm_bw_gbs": 1638.0,
+  "ridge_point_flops_per_byte": 560.4395604395604,
+  "modes": {
+    "1. Strict Eager": {
+      "arithmetic_intensity": 792.7741935483871,
+      "achieved_tflops": 228.06947206329602,
+      "latency_ms": 3.615712850000108
+    },
+    "2. Debug Eager": {
+      "arithmetic_intensity": 792.7741935483871,
+      "achieved_tflops": 153.42047831296722,
+      "latency_ms": 5.374991200000068
+    },
+    "3. DeferAndFuse": {
+      "arithmetic_intensity": 1365.3333333333333,
+      "achieved_tflops": 583.5364470387777,
+      "latency_ms": 1.4131657500001893
+    },
+    "4. torch.compile": {
+      "arithmetic_intensity": 4915.2,
+      "achieved_tflops": 660.5168760381645,
+      "latency_ms": 1.2484673000003
+    }
+  }
+}
