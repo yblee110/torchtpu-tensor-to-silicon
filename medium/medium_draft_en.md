@@ -290,3 +290,5 @@ If you are porting PyTorch workloads from GPU to Cloud TPU v6e (Trillium), follo
 All reproducible CLI labs (`labs/`), Colab notebooks (`notebooks/`), VM setup scripts (`scripts/setup_v6e_vm.sh`), raw TPU v6e metrics JSONs, and figure generation scripts for this walkthrough are open-sourced on GitHub:
 
 **GitHub Repository:** [github.com/yblee110/torchtpu-tensor-to-silicon](https://github.com/yblee110/torchtpu-tensor-to-silicon)
+
+*Acknowledgments: This article, open-source walkthrough, and the live Cloud TPU v6e experiments were made possible with support from Google.*
